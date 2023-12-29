@@ -35,10 +35,12 @@ public class StudentRepository {
 
     public void deleteAllTeachers(){
         teacherMap.clear();
+        teacherStudentMap.clear();
     }
 
     public void deleteTeacherByName(String name){
         teacherMap.remove(name);
+        teacherStudentMap.remove(getTeacherByName(name));
     }
 
     public void addStudentTeacherPair(String student, String teacher){
