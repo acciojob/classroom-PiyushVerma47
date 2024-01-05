@@ -34,6 +34,17 @@ public class StudentRepository {
     }
 
     public void deleteAllTeachers(){
+        List<String> teacherNames = new ArrayList<>();
+        for(String str : teacherMap.keySet()){
+            teacherNames.add(str);
+        }
+        for(String teacher : teacherNames){
+            List<Student> studentNames = teacherStudentMap.get(teacher);
+            for(Student student : studentNames){
+                String name = student.getName();
+                studentMap.remove(name);
+            }
+        }
         teacherMap.clear();
         teacherStudentMap.clear();
     }
