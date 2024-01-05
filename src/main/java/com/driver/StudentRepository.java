@@ -39,6 +39,10 @@ public class StudentRepository {
     }
 
     public void deleteTeacherByName(String name){
+        List<Student> studentNames = teacherStudentMap.get(name);
+        for(Student s : studentNames){
+            studentMap.remove(s.getName());
+        }
         teacherMap.remove(name);
         teacherStudentMap.remove(getTeacherByName(name));
     }
