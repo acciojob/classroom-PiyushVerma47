@@ -42,6 +42,7 @@ public class StudentRepository {
             List<Student> studentNames = teacherStudentMap.get(teacher);
             for(Student student : studentNames){
                 String name = student.getName();
+                if(studentMap.containsKey(name))
                 studentMap.remove(name);
             }
         }
